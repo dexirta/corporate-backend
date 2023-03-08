@@ -75,10 +75,11 @@ jobs:
     - name: 'Untar files'
       run: 'tar -xf node-app.tar'
 
-    - name: 'Deploy to Azure WebApp'
+    - name: 'Deploy to Azure Web App'
       id: deploy-to-webapp
       uses: azure/webapps-deploy@v2
       with:
-        app-name: ${{ env.AZURE_WEBAPP_NAME }}
-        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-        package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+        app-name: 'taxually-corporate-backend'
+        slot-name: 'Production'
+        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_08E686C04F4E4921A4BE68EDD9DCC6CF }}
+        package: .
