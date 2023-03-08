@@ -48,11 +48,14 @@ jobs:
         npm run build --if-present
         npm run test --if-present
 
+      - name: 'Tar files'
+        run: tar -cf node-app.tar .
+
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v3
       with:
         name: node-app
-        path: .
+        path: node-app.tar
 
   deploy:
     permissions:
@@ -68,6 +71,9 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         name: node-app
+
+    - name: 'Untar files'
+      run: 'tar -xf node-app.tar'
 
     - name: 'Deploy to Azure WebApp'
       id: deploy-to-webapp
