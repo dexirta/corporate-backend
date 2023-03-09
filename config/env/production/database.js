@@ -1,3 +1,6 @@
+const fs = require('fs');
+const serverCa = [fs.readFileSync("./certs/DigiCertGlobalRootCA.crt.pem", "utf8")];
+
 module.exports = ({ env }) => ({
   connection: {
     client: 'mysql',
@@ -7,7 +10,13 @@ module.exports = ({ env }) => ({
       database: env('DATABASE_NAME'),
       user: env('DATABASE_USERNAME'),
       password: env('DATABASE_PASSWORD'),
-      ssl: env.bool('DATABASE_SSL')
+      ssl: env.bool('DATABASE_SSL', false) && {
+        cert: serverCa,
+        rejectUnauthorized: env.bool(
+          'DATABASE_SSL_REJECT_UNAUTHORIZED',
+          true
+        ),
+      },
     },
   },
 });
