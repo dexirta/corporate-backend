@@ -44,12 +44,12 @@ jobs:
 
     - name: npm install, build, and test
       run: |
-        npm install
+        npm install --production
         npm run build --if-present
         npm run test --if-present
 
     - name: 'Tar files'
-      run: tar -cf node-app.tar .
+      run: tar -cf node-app.tar . --exclude=**/.git/* --exclude=**/node_modules/*
 
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v3
