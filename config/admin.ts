@@ -1,13 +1,16 @@
-export default ({ env }: any) => ({
+import { config } from './config';
+export default {
   auth: {
-    secret: env('ADMIN_JWT_SECRET'),
+    secret: config.admin.secret,
   },
   apiToken: {
-    salt: env('API_TOKEN_SALT'),
+    salt: config.admin.apiToken,
   },
   transfer: {
     token: {
-      salt: env('TRANSFER_TOKEN_SALT'),
+      salt: config.admin.transferApiToken,
     },
   },
-});
+  url: '/admin',
+  serveAdminPanel: true,
+};

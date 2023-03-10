@@ -1,10 +1,13 @@
-export default ({ env }: any) => ({
-  host: env('HOST', '0.0.0.0'),
-  port: env.int('PORT', 1337),
+import { config } from './config';
+
+export default {
+  host: config.server.host,
+  port: config.server.port,
   app: {
-    keys: env.array('APP_KEYS'),
+    keys: config.server.app.keys,
   },
   webhooks: {
-    populateRelations: env.bool('WEBHOOKS_POPULATE_RELATIONS', false),
+    populateRelations: config.server.webhooks.populateRelations,
   },
-});
+  url: config.server.url,
+};

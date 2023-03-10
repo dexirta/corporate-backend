@@ -1,51 +1,35 @@
+import fs from 'fs';
 import path from 'path';
+import { config } from './config';
 
-export default ({ env }: any) => {
-  const client = env('DATABASE_CLIENT', 'sqlite');
+enum EDbConnectors {
+  MYSQL = 'mysql',
+  SQLITE = 'sqlite',
+}
 
-  const connections: any = {
+export default () => {
+  const client = config.env === 'production' ? EDbConnectors.MYSQL : EDbConnectors.SQLITE;
+  const cert = fs.readFileSync('./certs/DigiCertGlobalRootCA.crt.pem', 'utf8');
+
+  const connections = {
     mysql: {
       connection: {
-        connectionString: env('DATABASE_URL'),
-        host: env('DATABASE_HOST', 'localhost'),
-        port: env.int('DATABASE_PORT', 3306),
-        database: env('DATABASE_NAME', 'strapi'),
-        user: env('DATABASE_USERNAME', 'strapi'),
-        password: env('DATABASE_PASSWORD', 'strapi'),
-        ssl: env.bool('DATABASE_SSL', false) && {
-          key: env('DATABASE_SSL_KEY', undefined),
-          cert: env('DATABASE_SSL_CERT', undefined),
-          ca: env('DATABASE_SSL_CA', undefined),
-          capath: env('DATABASE_SSL_CAPATH', undefined),
-          cipher: env('DATABASE_SSL_CIPHER', undefined),
-          rejectUnauthorized: env.bool('DATABASE_SSL_REJECT_UNAUTHORIZED', true),
+        host: config.db.mysql.host,
+        port: config.db.mysql.port,
+        database: config.db.mysql.database,
+        user: config.db.mysql.user,
+        password: config.db.mysql.password,
+        ssl: config.db.mysql.ssl && {
+          cert: cert || null,
+          rejectUnauthorized: true,
         },
       },
-      pool: { min: env.int('DATABASE_POOL_MIN', 2), max: env.int('DATABASE_POOL_MAX', 10) },
+      pool: { min: 2, max: 15 },
     },
-    postgres: {
-      connection: {
-        connectionString: env('DATABASE_URL'),
-        host: env('DATABASE_HOST', 'localhost'),
-        port: env.int('DATABASE_PORT', 3306),
-        database: env('DATABASE_NAME', 'strapi'),
-        user: env('DATABASE_USERNAME', 'strapi'),
-        password: env('DATABASE_PASSWORD', 'strapi'),
-        ssl: env.bool('DATABASE_SSL', false) && {
-          key: env('DATABASE_SSL_KEY', undefined),
-          cert: env('DATABASE_SSL_CERT', undefined),
-          ca: env('DATABASE_SSL_CA', undefined),
-          capath: env('DATABASE_SSL_CAPATH', undefined),
-          cipher: env('DATABASE_SSL_CIPHER', undefined),
-          rejectUnauthorized: env.bool('DATABASE_SSL_REJECT_UNAUTHORIZED', true),
-        },
-        schema: env('DATABASE_SCHEMA', 'public'),
-      },
-      pool: { min: env.int('DATABASE_POOL_MIN', 2), max: env.int('DATABASE_POOL_MAX', 10) },
-    },
+
     sqlite: {
       connection: {
-        filename: path.join(__dirname, '..', '..', env('DATABASE_FILENAME', 'data.db')),
+        filename: path.join(__dirname, '..', '..', config.db.sqlite.dbFileName),
       },
       useNullAsDefault: true,
     },
@@ -55,7 +39,7 @@ export default ({ env }: any) => {
     connection: {
       client,
       ...connections[client],
-      acquireConnectionTimeout: env.int('DATABASE_CONNECTION_TIMEOUT', 60000),
+      acquireConnectionTimeout: 60000,
     },
   };
 };
