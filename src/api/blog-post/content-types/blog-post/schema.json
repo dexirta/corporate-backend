@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "articles",
+  "collectionName": "blog_posts",
   "info": {
-    "singularName": "article",
-    "pluralName": "articles",
-    "displayName": "Article"
+    "singularName": "blog-post",
+    "pluralName": "blog-posts",
+    "displayName": "Blog Posts"
   },
   "options": {
     "draftAndPublish": true
@@ -14,8 +14,14 @@
     "title": {
       "type": "string"
     },
+    "author": {
+      "type": "string"
+    },
     "description": {
       "type": "richtext"
+    },
+    "active": {
+      "type": "boolean"
     },
     "media": {
       "allowedTypes": [
@@ -23,13 +29,11 @@
         "videos"
       ],
       "type": "media",
-      "multiple": true
+      "multiple": false
     },
-    "author": {
-      "type": "string"
-    },
-    "active": {
-      "type": "boolean"
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
     },
     "seo": {
       "type": "component",
