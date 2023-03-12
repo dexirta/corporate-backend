@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2023-03-11T18:51:39.167Z"
+    "x-generation-date": "2023-03-12T16:54:38.670Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -106,9 +106,6 @@
               "description": {
                 "type": "string"
               },
-              "active": {
-                "type": "boolean"
-              },
               "media": {
                 "oneOf": [
                   {
@@ -128,6 +125,9 @@
                 "items": {
                   "$ref": "#/components/schemas/SharedSeoComponent"
                 }
+              },
+              "previewText": {
+                "type": "string"
               }
             }
           }
@@ -150,9 +150,6 @@
               },
               "description": {
                 "type": "string"
-              },
-              "active": {
-                "type": "boolean"
               },
               "media": {
                 "type": "object",
@@ -665,6 +662,9 @@
                                                           }
                                                         }
                                                       }
+                                                    },
+                                                    "placeholder": {
+                                                      "type": "string"
                                                     }
                                                   }
                                                 }
@@ -768,6 +768,9 @@
                                 }
                               }
                             }
+                          },
+                          "placeholder": {
+                            "type": "string"
                           }
                         }
                       }
@@ -783,6 +786,9 @@
                 "items": {
                   "$ref": "#/components/schemas/SharedSeoComponent"
                 }
+              },
+              "previewText": {
+                "type": "string"
               },
               "createdAt": {
                 "type": "string",
@@ -1103,9 +1109,6 @@
               "description": {
                 "type": "string"
               },
-              "active": {
-                "type": "boolean"
-              },
               "media": {
                 "type": "object",
                 "properties": {
@@ -1617,6 +1620,9 @@
                                                           }
                                                         }
                                                       }
+                                                    },
+                                                    "placeholder": {
+                                                      "type": "string"
                                                     }
                                                   }
                                                 }
@@ -1720,6 +1726,9 @@
                                 }
                               }
                             }
+                          },
+                          "placeholder": {
+                            "type": "string"
                           }
                         }
                       }
@@ -1735,6 +1744,9 @@
                 "items": {
                   "$ref": "#/components/schemas/SharedSeoComponent"
                 }
+              },
+              "previewText": {
+                "type": "string"
               },
               "createdAt": {
                 "type": "string",
@@ -2088,9 +2100,6 @@
               "description": {
                 "type": "string"
               },
-              "active": {
-                "type": "boolean"
-              },
               "media": {
                 "type": "object",
                 "properties": {
@@ -2602,6 +2611,9 @@
                                                           }
                                                         }
                                                       }
+                                                    },
+                                                    "placeholder": {
+                                                      "type": "string"
                                                     }
                                                   }
                                                 }
@@ -2705,6 +2717,9 @@
                                 }
                               }
                             }
+                          },
+                          "placeholder": {
+                            "type": "string"
                           }
                         }
                       }
@@ -2720,6 +2735,9 @@
                 "items": {
                   "$ref": "#/components/schemas/SharedSeoComponent"
                 }
+              },
+              "previewText": {
+                "type": "string"
               },
               "createdAt": {
                 "type": "string",
@@ -3040,9 +3058,6 @@
               "description": {
                 "type": "string"
               },
-              "active": {
-                "type": "boolean"
-              },
               "media": {
                 "type": "object",
                 "properties": {
@@ -3554,6 +3569,9 @@
                                                           }
                                                         }
                                                       }
+                                                    },
+                                                    "placeholder": {
+                                                      "type": "string"
                                                     }
                                                   }
                                                 }
@@ -3657,6 +3675,9 @@
                                 }
                               }
                             }
+                          },
+                          "placeholder": {
+                            "type": "string"
                           }
                         }
                       }
@@ -3672,6 +3693,9 @@
                 "items": {
                   "$ref": "#/components/schemas/SharedSeoComponent"
                 }
+              },
+              "previewText": {
+                "type": "string"
               },
               "createdAt": {
                 "type": "string",
@@ -4507,6 +4531,9 @@
                                                       }
                                                     }
                                                   }
+                                                },
+                                                "placeholder": {
+                                                  "type": "string"
                                                 }
                                               }
                                             }
@@ -4610,6 +4637,9 @@
                             }
                           }
                         }
+                      },
+                      "placeholder": {
+                        "type": "string"
                       }
                     }
                   }
@@ -5149,6 +5179,9 @@
                                                             }
                                                           }
                                                         }
+                                                      },
+                                                      "placeholder": {
+                                                        "type": "string"
                                                       }
                                                     }
                                                   }
@@ -5252,6 +5285,9 @@
                                   }
                                 }
                               }
+                            },
+                            "placeholder": {
+                              "type": "string"
                             }
                           }
                         }
@@ -5360,6 +5396,9 @@
                 "example": "string or id"
               },
               "folderPath": {
+                "type": "string"
+              },
+              "placeholder": {
                 "type": "string"
               }
             }
@@ -5874,6 +5913,9 @@
                                               }
                                             }
                                           }
+                                        },
+                                        "placeholder": {
+                                          "type": "string"
                                         }
                                       }
                                     }
@@ -5977,6 +6019,9 @@
                     }
                   }
                 }
+              },
+              "placeholder": {
+                "type": "string"
               }
             }
           }
@@ -6490,6 +6535,9 @@
                                               }
                                             }
                                           }
+                                        },
+                                        "placeholder": {
+                                          "type": "string"
                                         }
                                       }
                                     }
@@ -6593,6 +6641,9 @@
                     }
                   }
                 }
+              },
+              "placeholder": {
+                "type": "string"
               }
             }
           }
@@ -7139,6 +7190,9 @@
                                               }
                                             }
                                           }
+                                        },
+                                        "placeholder": {
+                                          "type": "string"
                                         }
                                       }
                                     }
@@ -7242,6 +7296,9 @@
                     }
                   }
                 }
+              },
+              "placeholder": {
+                "type": "string"
               }
             }
           }
@@ -7755,6 +7812,9 @@
                                               }
                                             }
                                           }
+                                        },
+                                        "placeholder": {
+                                          "type": "string"
                                         }
                                       }
                                     }
@@ -7858,6 +7918,9 @@
                     }
                   }
                 }
+              },
+              "placeholder": {
+                "type": "string"
               }
             }
           }
@@ -8394,6 +8457,9 @@
                                               }
                                             }
                                           }
+                                        },
+                                        "placeholder": {
+                                          "type": "string"
                                         }
                                       }
                                     }
@@ -8997,6 +9063,9 @@
                                               }
                                             }
                                           }
+                                        },
+                                        "placeholder": {
+                                          "type": "string"
                                         }
                                       }
                                     }
@@ -9633,6 +9702,9 @@
                                               }
                                             }
                                           }
+                                        },
+                                        "placeholder": {
+                                          "type": "string"
                                         }
                                       }
                                     }
@@ -10236,6 +10308,9 @@
                                               }
                                             }
                                           }
+                                        },
+                                        "placeholder": {
+                                          "type": "string"
                                         }
                                       }
                                     }
