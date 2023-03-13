@@ -2,14 +2,6 @@ import { config } from './config';
 
 export default [
   'strapi::errors',
-  'strapi::cors',
-  'strapi::poweredBy',
-  'strapi::logger',
-  'strapi::query',
-  'strapi::body',
-  'strapi::session',
-  'strapi::favicon',
-  'strapi::public',
   {
     name: 'strapi::security',
     config: {
@@ -44,4 +36,33 @@ export default [
       },
     },
   },
+  'strapi::poweredBy',
+  {
+    name: 'strapi::cors',
+    config: {
+      cors: {
+        enabled: true,
+        origin: ['*'],
+        expose: ['WWW-Authenticate', 'Server-Authorization', 'Access-Control-Expose-Headers'],
+        maxAge: 31536000,
+        credentials: true,
+        methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS', 'HEAD'],
+        headers: [
+          'Content-Type',
+          'Authorization',
+          'X-Frame-Options',
+          'Origin',
+          'Access-Control-Allow-Headers',
+          'Access-Control-Allow-Origin',
+          'Access',
+        ],
+      },
+    },
+  },
+  'strapi::logger',
+  'strapi::query',
+  'strapi::body',
+  'strapi::session',
+  'strapi::favicon',
+  'strapi::public',
 ];
