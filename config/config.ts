@@ -140,6 +140,12 @@ const cfg = convict({
         default: '',
         env: 'STORAGE_CONTAINER_NAME',
       },
+      assetsFolder: {
+        doc: 'The azure upload plugin storage assets folder name',
+        format: String,
+        default: '',
+        env: 'STORAGE_ASSETS_FOLDER',
+      },
       cdnBaseURL: {
         doc: 'The azure upload plugin CDN base url',
         format: String,

@@ -19,7 +19,7 @@ export default {
         // sasToken: env('STORAGE_ACCOUNT_SAS_TOKEN'),
         // serviceBaseURL: env('STORAGE_URL'), // optional
         containerName: config.azure.upload.containerName,
-        defaultPath: 'assets',
+        defaultPath: config.azure.upload.assetsFolder,
         cdnBaseURL: config.azure.upload.cdnBaseURL, // optional
       },
     },

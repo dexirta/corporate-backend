@@ -5,7 +5,7 @@ const getBlogPostWithSlug = (strapi: Strapi) => {
   extensionService?.use(({ strapi }: { strapi: Strapi }) => ({
     typeDefs: `
       type Query {
-        blogPost(slug: String, id: String): BlogPostEntityResponse
+        blogPost(slug: String): BlogPostEntityResponse
       }
     `,
     resolvers: {
@@ -19,7 +19,7 @@ const getBlogPostWithSlug = (strapi: Strapi) => {
             const { toEntityResponse }: any = strapi?.service('plugin::graphql.format')?.returnTypes;
 
             const data = await strapi.services['api::blog-post.blog-post'].find({
-              filters: { slug: args?.slug } || { id: args?.id },
+              filters: { slug: args?.slug },
             });
 
             const response = toEntityResponse(data.results[0]);
