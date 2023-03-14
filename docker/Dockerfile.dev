@@ -1,6 +1,12 @@
 
 FROM node:18-alpine
 # Installing libvips-dev for sharp Compatability
+
+RUN \
+    chown root:root -R /usr/local/bin && \
+    chown root:root -R /usr/local/lib/node_modules && \
+    chown root:root -R /opt
+
 RUN apk update && apk add --no-cache build-base gcc autoconf automake zlib-dev libpng-dev nasm bash vips-dev
 ARG NODE_ENV=development
 ENV NODE_ENV=${NODE_ENV}
