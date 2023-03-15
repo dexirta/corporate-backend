@@ -8,10 +8,4 @@ export default {
     imageBlurPlaceholder(strapi);
     getBlogPostWithSlug(strapi);
   },
-
-  bootstrap({ strapi }: { strapi: Strapi }) {
-    strapi.server.httpServer.keepAliveTimeout = 60 * 1000 + 1000;
-    strapi.server.httpServer.headersTimeout = 60 * 1000 + 2000;
-    strapi.server.httpServer.keepAlive = true;
-  },
 };
