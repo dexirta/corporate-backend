@@ -14,7 +14,7 @@
     "@strapi/plugin-documentation": "^4.8.2",
     "@strapi/plugin-graphql": "^4.8.2",
     "@strapi/plugin-i18n": "4.8.2",
-    "@strapi/plugin-seo": "^1.8.2",
+    "@strapi/plugin-seo": "^1.8.0",
     "@strapi/plugin-users-permissions": "4.8.2",
     "@strapi/strapi": "4.8.2",
     "@types/convict": "^6.1.1",
